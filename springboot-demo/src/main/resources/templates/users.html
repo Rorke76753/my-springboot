@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>UserList</h1>
+<div th:if="${user!=null}">
+    <dl>
+        <dt class="userHeadLine">
+            <span th:text="${user.getId()}">Id</span>
+            <span th:text="${user.getUserName()}">userName</span>
+        </dt>
+        <dd class="userDescription">
+            <span th:if="${user.getImageUrl()}" th:text="${user.getImageUrl()}">imageUrl</span>
+        </dd>
+    </dl>
+</div>
+<div th:if="${user==null}">
+    <h3>No matches user</h3>
+</div>
+<hr>
+<h2>add user</h2>
+<form method="post">
+    <label th:for="userName">UserName:</label>
+        <input type="text" name="userName" size="50">
+    <br>
+    <label th:for="password">Password:</label>
+        <input type="password" name="password" size="50">
+    <br>
+    <label th:for="imageUrl">imageUrl:</label>
+    <input type="text" name="imageUrl" size="50">
+    <br>
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>
