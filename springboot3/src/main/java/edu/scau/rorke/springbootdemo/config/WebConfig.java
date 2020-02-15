@@ -1,9 +1,11 @@
 package edu.scau.rorke.springbootdemo.config;
 
+import edu.scau.rorke.springbootdemo.component.LoginHandlerInterceptor;
 import edu.scau.rorke.springbootdemo.component.MyLocalResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -28,10 +30,20 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("register").setViewName("register");
         registry.addViewController("login").setViewName("login");
         registry.addViewController("index").setViewName("../public/index");
+        registry.addViewController("user").setViewName("/users/list");
+        registry.addViewController("main.html").setViewName("dashboard");
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/login","/register","/user/**","/webjars/**","/asserts/**","/druid/**");
     }
 
     @Bean
-    public LocaleResolver getLocaleResolver(){
+    public LocaleResolver localeResolver(){
         return new MyLocalResolver();
     }
+
+
 }

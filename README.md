@@ -6,7 +6,7 @@
 
 ### 2.10 ：[spring boot自动配置的初理解](https://github.com/Rorke76753/my-springboot-tutorial/tree/master/springboot1)
 
-
+### 2.11-2.12 ：[一个基于mvc模式的登录、注册系统](https://github.com/Rorke76753/my-springboot-tutorial/tree/master/springboot2)
 
 
 
