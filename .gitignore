@@ -24,3 +24,9 @@ hs_err_pid*
 
 #properties#
 *.properties
+
+# ignore linux
+linux/
+
+# ignore log
+log/
