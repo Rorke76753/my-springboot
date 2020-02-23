@@ -37,3 +37,7 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

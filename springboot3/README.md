@@ -38,7 +38,7 @@
 
 
 
-# 2.14 spring boot
+# 2.14 Spring boot
 
 spring boot程序内有对tomcat的依赖，也就是说在不配置外部servlet服务器的情况下spring boot的web程序会在内部嵌入的tomcat服务器中运行。
 
