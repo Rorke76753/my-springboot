@@ -30,3 +30,6 @@ linux/
 
 # ignore log
 log/
+
+# ignore pic
+*.jpg

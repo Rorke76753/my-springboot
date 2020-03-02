@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard TprofileUserlate for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.css}"
+          rel="stylesheet">
+
+    <!-- Custom styles for this tprofileUserlate -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<!--引入抽取的topbar-->
+<!--模板名：会使用thymeleaf的前后缀配置规则进行解析-->
+<div th:replace="commons/bar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <h1>profileTest</h1>
+        引入侧边栏
+        <div th:replace="commons/bar::#sidebar(activeUri='user/profile')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <!--需要区分是员工修改还是添加；-->
+            <form th:action="@{/user/profile/}+${userProfile.getUserName()}" method="post">
+                <input type="hidden" name="_method" value="put"/>
+                <input type="hidden" name="id" th:value="${userProfile.id}">
+                <div class="form-group">
+                    <label>UserName</label>
+                    <input name="userName" type="text" class="form-control" placeholder="UserName"
+                           th:value="${userProfile.userName}" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Nickname</label>
+                    <input name="nickname" type="text" class="form-control" placeholder="Nickname"
+                           th:value="${userProfile.nickName}">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input name="password" type="password" class="form-control" placeholder="password">
+                </div>
+                <div class="form-group">
+                    <label>Ensure your password</label>
+                    <input name="ensurePassword" type="password" class="form-control"
+                           placeholder="Ensure your password">
+                </div>
+                <button type="submit" class="btn btn-primary" th:text="修改"></button>
+            </form>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="/asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+<script type="text/javascript" src="/asserts/js/popper.min.js"
+        th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+<script type="text/javascript" src="/asserts/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.js}"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="/asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
+</body>
+</html>

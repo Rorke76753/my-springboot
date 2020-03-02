@@ -12,3 +12,5 @@
 
 ### 2.15-2.23 ：[spring boot启动过程的初理解以及一个简单的starter](https://github.com/Rorke76753/my-springboot-tutorial/tree/master/springboot04) 
 
+### 2.28-2.29 ：[整合shiro和redis，并重写各个controller](https://github.com/Rorke76753/my-springboot-tutorial/tree/master/springboot05) 
+
